@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     height: DataTypes.INTEGER,
     weight: DataTypes.INTEGER,
     team: DataTypes.STRING
-  }, {});
+  }, {timestamps: false});
   Olympian.associate = function(models) {
     Olympian.belongsToMany(models.Sport, {through: models.Olympian_Sport, foreignKey: 'OlympianId', onDelete: "CASCADE"})
   }

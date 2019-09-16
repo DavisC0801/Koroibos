@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     medal: DataTypes.STRING,
     SportId: DataTypes.BIGINT,
     OlympianId: DataTypes.BIGINT
-  }, {});
+  }, {timestamps: false});
   Olympian_Sport.associate = function(models) {
     Olympian_Sport.belongsTo(models.Olympian, {foreignKey: 'OlympianId', as: 'olympian'})
     Olympian_Sport.belongsTo(models.Sport, {foreignKey: 'SportId', as: 'sport'})
