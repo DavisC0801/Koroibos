@@ -17,7 +17,7 @@ module.exports = {
       sport_id: {
         type: Sequelize.BIGINT,
         references: {
-          model: 'Sport',
+          model: 'Sports',
           key: 'id',
         },
         onUpdate: 'CASCADE',
@@ -26,7 +26,7 @@ module.exports = {
       olympian_id: {
         type: Sequelize.BIGINT,
         references: {
-          model: 'Olympian',
+          model: 'Olympians',
           key: 'id',
         },
         onUpdate: 'CASCADE',

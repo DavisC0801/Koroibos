@@ -14,7 +14,7 @@ module.exports = {
       game_id: {
         type: Sequelize.BIGINT,
         references: {
-          model: 'Game',
+          model: 'Games',
           key: 'id',
         },
         onUpdate: 'CASCADE',
