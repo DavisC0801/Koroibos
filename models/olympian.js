@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     team: DataTypes.STRING
   }, {});
   Olympian.associate = function(models) {
-    Olympian.belongsToMany(models.Sport, {through: models.Olympian_Sport, foreignKey: 'olympian_id', onDelete: "CASCADE"})
+    Olympian.belongsToMany(models.Sport, {through: models.Olympian_Sport, foreignKey: 'OlympianId', onDelete: "CASCADE"})
   }
   return Olympian;
 };

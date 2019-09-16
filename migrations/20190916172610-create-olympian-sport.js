@@ -14,7 +14,7 @@ module.exports = {
       medal: {
         type: Sequelize.STRING
       },
-      sport_id: {
+      SportId: {
         type: Sequelize.BIGINT,
         references: {
           model: 'Sports',
@@ -23,7 +23,7 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL',
       },
-      olympian_id: {
+      OlympianId: {
         type: Sequelize.BIGINT,
         references: {
           model: 'Olympians',

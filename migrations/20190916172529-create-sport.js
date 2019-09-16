@@ -11,7 +11,7 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
-      game_id: {
+      GameId: {
         type: Sequelize.BIGINT,
         references: {
           model: 'Games',
