@@ -3,10 +3,10 @@ task('readCSV', [], function () {
   const parse = require('csv-parse')
   const fs = require('fs')
   const inputFile = './data/olympic_data_2016.csv'
-  const gameModel = require('./models').Game
-  const olympianModel = require('./models').Olympian
-  const sportModel = require('./models').Sport
-  const olympianSportModel = require('./models').Olympian_Sport
+  const Game = require('./models').Game
+  const Olympian = require('./models').Olympian
+  const Sport = require('./models').Sport
+  const Olympian_Sport = require('./models').Olympian_Sport
   const parser = parse({
     columns: true
   })
@@ -24,13 +24,13 @@ task('readCSV', [], function () {
       if (dataObj["Weight"] === "NA") {
         dataObj["Weight"] = null
       }
-      let game = await gameModel.findOrCreate({where: {
+      let game = await Game.findOrCreate({where: {
         name: dataObj["Games"],
       }})
       .then(([game, created]) => {
         return game
       })
-      let olympian = await olympianModel.findOrCreate({where: {
+      let olympian = await Olympian.findOrCreate({where: {
         name: dataObj["Name"],
         age: dataObj["Age"],
         sex: dataObj["Sex"],
@@ -41,14 +41,14 @@ task('readCSV', [], function () {
       .then(([olympian, created]) => {
         return olympian
       })
-      let sport = await sportModel.findOrCreate({where: {
+      let sport = await Sport.findOrCreate({where: {
         name: dataObj["Sport"],
         GameId: game.id
       }})
       .then(([sport, created]) => {
         return sport
       })
-      await olympianSportModel.create({
+      await Olympian_Sport.create({
         event: dataObj["Event"],
         medal: dataObj["Medal"],
         SportId: sport.id,
