@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "chris",
+    "password": null,
+    "database": "koroibos_development",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "operatorsAliases": false
+  },
+  "test": {
+    "username": "chris",
+    "password": null,
+    "database": "koroibos_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "operatorsAliases": false
+  },
+  "production": {
+    "username": "chris",
+    "password": null,
+    "database": "koroibos_production",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "operatorsAliases": false
+  }
+}

@@ -7,10 +7,18 @@
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
+    "csv": "^5.1.2",
     "debug": "~2.6.9",
     "express": "~4.16.1",
+    "fs": "0.0.1-security",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
-    "morgan": "~1.9.1"
+    "jake": "^8.1.1",
+    "jest": "^24.9.0",
+    "morgan": "~1.9.1",
+    "nodemon": "^1.19.2",
+    "pg": "^7.12.1",
+    "sequelize": "^5.18.4",
+    "sequelize-cli": "^5.5.1"
   }
 }
