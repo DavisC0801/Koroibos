@@ -9,8 +9,6 @@ router.get("/", function(req, res){
       query = Olympian.sequelize.query('SELECT "Olympians"."name", "Olympians"."team", "Olympians"."age", "Sports"."name" AS "sport", COUNT("Olympian_Sports"."medal") AS "total_medals_won" FROM "Olympians" INNER JOIN "Olympian_Sports" ON "Olympians"."id" = "Olympian_Sports"."OlympianId" INNER JOIN "Sports" on "Sports"."id" = "Olympian_Sports"."SportId" GROUP BY "Sports"."name", "Olympians"."name", "Olympians"."team", "Olympians"."age" ORDER BY "Olympians"."age" ASC LIMIT 1;',{ raw: true })
     } else if (req.query.age === "oldest") {
       query = Olympian.sequelize.query('SELECT "Olympians"."name", "Olympians"."team", "Olympians"."age", "Sports"."name" AS "sport", COUNT("Olympian_Sports"."medal") AS "total_medals_won" FROM "Olympians" INNER JOIN "Olympian_Sports" ON "Olympians"."id" = "Olympian_Sports"."OlympianId" INNER JOIN "Sports" on "Sports"."id" = "Olympian_Sports"."SportId" GROUP BY "Sports"."name", "Olympians"."name", "Olympians"."team", "Olympians"."age" ORDER BY "Olympians"."age" DESC LIMIT 1;',{ raw: true })
-    } else {
-      query = Olympian.sequelize.query('SELECT "Olympians"."name", "Olympians"."team", "Olympians"."age", "Sports"."name" AS "sport", COUNT("Olympian_Sports"."medal") AS "total_medals_won" FROM "Olympians" INNER JOIN "Olympian_Sports" ON "Olympians"."id" = "Olympian_Sports"."OlympianId" INNER JOIN "Sports" on "Sports"."id" = "Olympian_Sports"."SportId" GROUP BY "Sports"."name", "Olympians"."name", "Olympians"."team", "Olympians"."age";',{ raw: true })
     }
   }
   if (req.query.medals) {
@@ -20,8 +18,6 @@ router.get("/", function(req, res){
       query = Olympian.sequelize.query('SELECT "Olympians"."name", "Olympians"."team", "Olympians"."age", "Sports"."name" AS "sport", COUNT("Olympian_Sports"."medal") AS "total_medals_won" FROM "Olympians" INNER JOIN "Olympian_Sports" ON "Olympians"."id" = "Olympian_Sports"."OlympianId" INNER JOIN "Sports" on "Sports"."id" = "Olympian_Sports"."SportId" GROUP BY "Sports"."name", "Olympians"."name", "Olympians"."team", "Olympians"."age" HAVING COUNT("Olympian_Sports"."medal") > 0 ORDER BY "total_medals_won" ASC;',{ raw: true })
     } else if (Number.isInteger(parseInt(req.query.medals))) {
       query = Olympian.sequelize.query(`SELECT "Olympians"."name", "Olympians"."team", "Olympians"."age", "Sports"."name" AS "sport", COUNT("Olympian_Sports"."medal") AS "total_medals_won" FROM "Olympians" INNER JOIN "Olympian_Sports" ON "Olympians"."id" = "Olympian_Sports"."OlympianId" INNER JOIN "Sports" on "Sports"."id" = "Olympian_Sports"."SportId" GROUP BY "Sports"."name", "Olympians"."name", "Olympians"."team", "Olympians"."age" HAVING COUNT("Olympian_Sports"."medal") = ${req.query.medals} ORDER BY "total_medals_won" ASC;`,{ raw: true })
-    } else {
-      query = Olympian.sequelize.query('SELECT "Olympians"."name", "Olympians"."team", "Olympians"."age", "Sports"."name" AS "sport", COUNT("Olympian_Sports"."medal") AS "total_medals_won" FROM "Olympians" INNER JOIN "Olympian_Sports" ON "Olympians"."id" = "Olympian_Sports"."OlympianId" INNER JOIN "Sports" on "Sports"."id" = "Olympian_Sports"."SportId" GROUP BY "Sports"."name", "Olympians"."name", "Olympians"."team", "Olympians"."age";',{ raw: true })
     }
   }
   query.then(olympians => {
