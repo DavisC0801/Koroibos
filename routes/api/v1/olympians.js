@@ -8,7 +8,7 @@ router.get("/", function(req, res){
   .then(olympians => {
     if (olympians.length > 0) {
       res.setHeader("Content-Type", "application/json");
-      res.status(200).send(JSON.stringify({"olympians": olympians}));
+      res.status(200).send(JSON.stringify({"olympians": olympians[0]}));
     } else {
       res.setHeader("Content-Type", "application/json");
       res.status(404).send(JSON.stringify({error: "No olympian athlete entries located."}));
