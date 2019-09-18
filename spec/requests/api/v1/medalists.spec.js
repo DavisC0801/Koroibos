@@ -28,17 +28,17 @@ describe('api', () => {
 
   describe('api v1 olympians medalists edge cases', () => {
     test('It should respond to a GET request', () => {
-    return request(app).get("/api/v1/events/4/medalists")
+    return request(app).get("/api/v1/events/100/medalists")
       .then(response => {
         expect(response.statusCode).toBe(404);
       });
     });
 
-    test('It should have an error if no medalists are in the database', () => {
-    return request(app).get("/api/v1/events/4/medalists")
+    test('It should have an error if invalid id is passed', () => {
+    return request(app).get("/api/v1/events/100/medalists")
       .then(response => {
         expect(Object.keys(response.body)).toContain("error");
-        expect(response.body["error"]).toBe("No medalists located.");
+        expect(response.body["error"]).toBe("No event entry located.");
       });
     });
   });
