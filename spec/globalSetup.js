@@ -4,5 +4,5 @@ module.exports = () => {
   shell.exec('npx sequelize db:drop');
   shell.exec('npx sequelize db:create');
   shell.exec('npx sequelize db:migrate');
-  shell.exec('npx jake readCSV');
+  shell.exec('npx jake loadTestData');
 }
