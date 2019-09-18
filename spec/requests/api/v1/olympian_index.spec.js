@@ -16,6 +16,7 @@ describe('api', () => {
     return request(app).get("/api/v1/olympians")
       .then(response => {
         expect(Object.keys(response.body)).toContain("olympians");
+        expect(response.body["olympians"].length).toBe(39);
         expect(Object.keys(response.body["olympians"][0])).toContain("name");
         expect(Object.keys(response.body["olympians"][0])).toContain("team");
         expect(Object.keys(response.body["olympians"][0])).toContain("age");
