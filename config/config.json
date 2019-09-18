@@ -16,10 +16,11 @@
     "operatorsAliases": false
   },
   "production": {
+    "use_env_variable": "DATABASE_URL",
     "username": "chris",
     "password": null,
     "database": "koroibos_production",
-    "host": "127.0.0.1",
+    "host": "https://koroibos-express.herokuapp.com/",
     "dialect": "postgres",
     "operatorsAliases": false
   }
