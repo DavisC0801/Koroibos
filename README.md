@@ -84,7 +84,8 @@ An example response is as follows:
     [
       {
         "name":"Ana Iulia Dascl",
-        "team":"Romania","age":13,
+        "team":"Romania",
+        "age":13,
         "sport":"Swimming",
         "total_medals_won":"0"
       }
