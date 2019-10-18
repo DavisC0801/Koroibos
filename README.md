@@ -2,7 +2,7 @@
 An API for olympics data analytics using Node.Js and Express.
 
 ## Deployed Build
-* A deployed version of this application can be found [here](https://koroibos-express.herokuapp.com).
+* A deployed version of this application can be found [here](https://koroibos-express.herokuapp.com/api/v1/olympians).
 * The project board for this application is located [here](https://github.com/DavisC0801/Koroibos/projects/1).
 
 ## Local Build
